@@ -147,5 +147,16 @@ async def premium_check(c, m, sent):
                 sticker="CAACAgEAAxkBAAECFrdhvdCWEWU-CLXsSot2Dizyn_FkNAAC7wEAAnzn8UWxlVoBHyE2gh4E",
             )
             return True  
-        else:
-            return False
+
+    elif m.from_user.id in Config.TIME_GAP2:
+        # if time gap not completed
+        msg = Config.timegap_message[m.from_user.id]
+        await sent.delete()
+        await msg.reply_text(
+            text="**👆 See This Message And don't disturb me again 😏**",
+            parse_mode="markdown",
+            quote=True
+        )
+        return True
+    else:
+        return False
