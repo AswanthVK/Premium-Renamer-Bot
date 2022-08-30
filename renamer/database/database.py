@@ -4,8 +4,8 @@ import motor.motor_asyncio
 
 # Required For Database
 
-MANGODB_URL = os.environ.get("MANGODB_URL", "")
-SESSION_NAME = os.environ.get("SESSION_NAME", "DKRENAMERBOT")
+MANGODB_URL = os.environ.get("MANGODB_URL", "mongodb+srv://dkbotz:786@cluster0.pczec.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+SESSION_NAME = os.environ.get("SESSION_NAME", "PAID")
 
 class Singleton(type):
     __instances__ = {}
