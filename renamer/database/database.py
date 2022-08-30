@@ -18,9 +18,9 @@ class Singleton(type):
 
 
 class Database(metaclass=Singleton):
-    def __init__(self):
-        self._client = motor.motor_asyncio.AsyncIOMotorClient(MANGODB_URL)
-        self.db = self._client[SESSION_NAME]
+    
+    def __init__(self, uri, database_name):
+        self._client = motor.motor_asyncio.AsyncIOMotorClient(uri)
         self.col = self.db.users
         self.cache = {}
 
