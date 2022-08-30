@@ -23,6 +23,8 @@ class Database:
         self._client = motor.motor_asyncio.AsyncIOMotorClient(uri)
         self.db = self._client[database_name]
         self.col = self.db.users
+        
+        self.cache = {}
 
     def new_user(self, id):
         return dict(
@@ -96,8 +98,9 @@ class Database:
 
 ################## Checking & Adding New User 👤 ##################
 
+
     async def get_user(self, id):
-        user = self.get(id)
+        user = self.cache.get(id)
         if user is not None:
             return user
 
