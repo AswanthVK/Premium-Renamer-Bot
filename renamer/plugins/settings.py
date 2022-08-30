@@ -182,5 +182,5 @@ async def samplevideo_cb(c, m):
         button.append(samplevideo_duration)
     button.append([InlineKeyboardButton("🔙 Back", callback_data="setting")])
     await m.answer()
-    await m.message.edit("**Select The suitable option you need**", parse_mode="markdown", reply_markup=InlineKeyboardMarkup(button))
+    await m.message.edit("**Select The Suitable Option You Need**", parse_mode="markdown", reply_markup=InlineKeyboardMarkup(button))
 #################### THE END 🌋 ####################

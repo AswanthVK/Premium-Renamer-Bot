@@ -41,7 +41,7 @@ async def start(c, m, cb=False):
 
     button = [
         [
-            InlineKeyboardButton('🧔 My Father', url='https://t.me/Ns_AnoNymous'),
+            InlineKeyboardButton('🧔 Developer', url='https://t.me/DKBOTZHELP'),
             InlineKeyboardButton('📘 About', callback_data='about')
         ],
         [
@@ -120,8 +120,7 @@ async def set_caption(c, m):
             "    • `{filesize}` - replaced by filesize\n"
             "    • `{mimeType}` - replaced by the media mimeType\n"
             "    • `{caption}` - replaced with the previous file caption\n\n"
-            "**Note:**\n1. You can check the current caption using /caption\n"
-            "2. This feature was inspired from @urluploadxbot",
+            "**Note:**\n1. You can check the current caption using /caption",
             reply_markup=InlineKeyboardMarkup(buttons),
             quote=True)
     else:
@@ -182,9 +181,9 @@ async def warn(c, m):
                 await m.reply_text("User Notfied Sucessfully")
                 await c.send_message(chat_id=int(user_id), text=reason)
             except:
-                 await m.reply_text("User not Notfied Sucessfully 😔")
+                 await m.reply_text("User Not Notfied Sucessfully 😔")
     else:
-        await m.reply_text(text="You are not admin 😡", quote=True)
+        await m.reply_text(text="You Are Not Admin 😡", quote=True)
 
 
 @Client.on_message(filters.command('list'))

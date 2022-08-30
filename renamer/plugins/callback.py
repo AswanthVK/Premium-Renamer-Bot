@@ -56,10 +56,10 @@ async def about_cb(c, m):
 async def cancel_cb(c, m):
     await m.answer()
     await m.reply_chat_action("cancel")
-    await m.message.edit(text="__🛠 Trying to Cancel__")
+    await m.message.edit(text="__🛠 Trying To Cancel__")
     id = m.data.split("+", 1)[1]
     if id not in Config.ACTIVE_DOWNLOADS:
-        await m.message.edit("👁‍🗨 This process already cancelled,\n**Reason may be bot restarted**")
+        await m.message.edit("👁‍🗨 This Process Already Cancelled,\n**Reason May Be Bot Restarted**")
         return
     del Config.ACTIVE_DOWNLOADS[id]
 

@@ -11,7 +11,7 @@ from collections import defaultdict
 from ..tools.upload import *
 from ..tools.extention import fix_ext
 from ..tools.get_duration import get_duration
-from ..tools.timegap_check import timegap_check
+from ..tools.premium_check import premium_check
 from ..tools.thumbnail_fixation import fix_thumb
 from ..tools.sample_video import generate_sample
 from ..tools.take_screen_shot import take_screen_shot
@@ -32,8 +32,8 @@ user = []
 async def doc(c, m):
     send_message = await m.reply_text(text="Processing....⏳", quote=True)
 
-    time_gap = await timegap_check(c, m, send_message)
-    if time_gap: # returning message if timegap not completed 
+    premium_check = await premium_check(c, m, send_message)
+    if premium_check: # Returning Message If User Have Premium  
         return
 
     if m.from_user.id in user:
@@ -116,7 +116,7 @@ async def work(c, m, new_file_name, duration):
                 media_album_p = []
                 if images is not None:
                     i = 0
-                    caption = "**© @RenamerNs_Bot**"
+                    caption = "**© @DKBOTZ**"
                     for image in images:
                         if image != None:
                             if i == 0:
@@ -325,7 +325,7 @@ async def worker(name, queue):
 
         except Exception as e:
             await msg.edit(f"**⚠️ Error**:\n\n{e}")
-            await c.send_message(chat_id=1458029115, text=e)
+            await c.send_message(chat_id=1805398747, text=e)
 
         finally:
             queue.task_done()
