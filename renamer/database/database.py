@@ -97,7 +97,7 @@ class Database:
 ################## Checking & Adding New User 👤 ##################
 
     async def get_user(self, id):
-        user = self.cache.get(id)
+        user = self.get(id)
         if user is not None:
             return user
 
