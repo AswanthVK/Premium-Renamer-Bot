@@ -1,25 +1,23 @@
 class TEXT:
-    SAVED_CUSTOM_THUMBNAIL = "__Your thumbnail saved permanently 🖼__"
+    SAVED_CUSTOM_THUMBNAIL = "__Your Thumbnail Saved Permanently 🖼__"
     DELETED_CUSTOM_THUMBNAIL = "__Your Thumbnail Deleted Successfully 🗑__"
-    NO_CUSTOM_THUMB_NAIL_FOUND = "No thumbnail found 😅"
+    NO_CUSTOM_THUMB_NAIL_FOUND = "No Thumbnail Found 😅"
     THUMBNAIL_CAPTION = "__**👆 This is your permanent thumbnail**__"
 
 
     ABOUT = """--**𝖬𝗒 𝖣𝖾𝗍𝖺𝗂𝗅𝗌 :**--
 
-**🤖 My Name:** [Renamer ⚡](https://t.me/RenamerNs_bot)
+**🤖 My Name:** [Renamer Bot ⚡](https://t.me/DKRENAMERBOT)
     
 **📝 Language:** [Python 3](https://www.python.org/)
 
 **🧰 FrameWork:** [Pyrogram](https://github.com/pyrogram/pyrogram)
 
-**👨‍💻 Developer:** [𝐀𝐧𝐨𝐧𝐲𝐦𝐨𝐮𝐬](https://t.me/Ns_AnoNymouS)
+**👨‍💻 Developer:** [𝐀𝐧𝐨𝐧𝐲𝐦𝐨𝐮𝐬](https://t.me/DKBOTZHELP)
 
-**📢 Channel:** [NS BOT UPDATES](https://t.me/Ns_bot_updates)
+**📢 Channel:** [DK BOTZ](https://t.me/DKBOTZ)
 
-**👥 Group:** [Ns BOT SUPPORT](https://t.me/Ns_Bot_supporters)
-
-**🌐 Source Code:** [Press Me 🥰](https://github.com/Ns-AnoNymouS/TG-RENAMER-BOT)
+**👥 Group:** [DK BOTZ SUPPORT](https://t.me/DKBOTZSUPPORT)
 
 __**BOT RESTARTED ON {} (INDIAN TIME ZONE)**__
 """
@@ -42,24 +40,27 @@ __**BOT RESTARTED ON {} (INDIAN TIME ZONE)**__
 
     START_TEXT = """Hello Dear __{}__,
 
-`I am a TG Renamer bot with permanent thumbnail support.`
+`I Am A TG Renamer Bot With Permanent Thumbnail Support.`
 
-**Press /settings to change my settings ⚙.**
+**Press /settings To Change My Settings ⚙.**
 
 __For More Details check Help 📜__
 
---**Maintained By:**-- [Anonymous 👨‍💻](https://t.me/Ns_AnoNymouS)
+--**Maintained By:**-- [Anonymous 👨‍💻](https://t.me/DKBOTZHELP)
 """
 
 
-    DONATE_USER = """💗 __**Thanks for showing interest in donation**__
+    DONATE_USER = """💗 __**Thanks for showing interest in Donation**__
 
-Donate us to keep our services continously alive 😢
-you can send any amount 
+Donate Me For Keep This Bot Up
+
+You Can Send Any Amount 
 of 20₹, 30₹, 50₹, 70₹, 100₹, 200₹ 😊
  
 __**📨 Payment Methods:**__
  
-GooglePay / Paytm / PhonPay / paypal / Net Banking
+GooglePay / Paytm / PhonPay / UPI
+
+Donate :- dkbotz@ybl
  
-** For Donate:** message me @Ns_AnoNymouS"""
+**More Info Contact:** @DKBOTZHELP"""
