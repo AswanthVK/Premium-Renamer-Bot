@@ -37,11 +37,11 @@ class Database(metaclass=Singleton):
                 'sample_video': 0,
                 'custom_caption': '**{filename}**'},
             paid_status={
-                is_paid=False,
-                paid_duration=0,
-                paid_on=datetime.datetime.now(),
-                paid_username="",
-                paid_reason=""},
+                'is_paid': False,
+                'paid_duration': 0,
+                'paid_on': datetime.datetime.now(),
+                'paid_username': "",
+                'paid_reason': ""},
             ban_status={
                 'is_banned': False,
                 'ban_duration': 0,
