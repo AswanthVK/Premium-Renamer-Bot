@@ -32,8 +32,8 @@ user = []
 async def doc(c, m):
     send_message = await m.reply_text(text="Processing....⏳", quote=True)
 
-    premium_check = await premium_check(c, m, send_message)
-    if premium_check: # Returning Message If User Have Premium  
+    time_gap = await premium_check(c, m, send_message)
+    if time_gap: # returning message if timegap not completed 
         return
 
     if m.from_user.id in user:
