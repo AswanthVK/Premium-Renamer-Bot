@@ -17,7 +17,6 @@ async def save_photo(c, m):
 
     send_message = await m.reply_text(
         "**Processing.....⏳**",
-        parse_mode="markdown",
         quote=True
     )
 
@@ -34,7 +33,7 @@ async def save_photo(c, m):
 
     await send_message.edit(
         text=TEXT.SAVED_CUSTOM_THUMBNAIL,
-        parse_mode="markdown"
+        quote=True
     )
 
 
@@ -45,7 +44,6 @@ async def delete_thumbnail(c, m):
 
     send_message = await m.reply_text(
         "**Processing.....⏳**",
-        parse_mode="markdown",
         quote=True
     )
 
@@ -73,7 +71,7 @@ async def delete_thumbnail(c, m):
 
     await send_message.edit(
         text=text,
-        parse_mode="markdown"
+        quote=True
     )
 
 
@@ -84,7 +82,6 @@ async def show_thumbnail(c, m):
 
     send_message = await m.reply_text(
         "**Processing.....⏳**",
-        parse_mode="markdown",
         quote=True
     )
 
@@ -115,7 +112,6 @@ async def show_thumbnail(c, m):
              photo=photo_location,
              caption=TEXT.THUMBNAIL_CAPTION,
              reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("𝐃𝐞𝐥𝐞𝐭𝐞 𝐓𝐡𝐮𝐦𝐛𝐧𝐚𝐢𝐥 🗑️", callback_data="del")]]),
-             parse_mode="markdown",
              quote=True
          )
 
