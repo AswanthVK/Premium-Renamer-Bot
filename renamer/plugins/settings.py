@@ -148,7 +148,7 @@ async def screen_shot_cb(c, m):
         button.append(screenshot_number2)
     button.append([InlineKeyboardButton("🔙 Back", callback_data="setting")])
     await m.answer()
-    await m.message.edit("**Select The suitable option you need**", parse_mode="markdown", reply_markup=InlineKeyboardMarkup(button))
+    await m.message.edit("**Select The suitable option you need**", reply_markup=InlineKeyboardMarkup(button))
 
 
 @Client.on_callback_query(filters.regex('^samplevideo$'))
@@ -179,5 +179,5 @@ async def samplevideo_cb(c, m):
         button.append(samplevideo_duration)
     button.append([InlineKeyboardButton("🔙 Back", callback_data="setting")])
     await m.answer()
-    await m.message.edit("**Select The Suitable Option You Need**", parse_mode="markdown", reply_markup=InlineKeyboardMarkup(button))
+    await m.message.edit("**Select The Suitable Option You Need**", reply_markup=InlineKeyboardMarkup(button))
 #################### THE END 🌋 ####################
