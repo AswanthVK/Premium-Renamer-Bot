@@ -25,7 +25,7 @@ async def save_photo(c, m):
         await c.db.add_user(m.from_user.id)
 
     download_location = f"{Config.DOWNLOAD_LOCATION}/{m.from_user.id}.jpg"
-    await c.db.update_settings_status(m.from_user.id, 'permanent_thumb', m.message_id)
+    await c.db.update_settings_status(m.from_user.id, 'permanent_thumb', m.id)
     await m.download(
         file_name=download_location,
         block=False
