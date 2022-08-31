@@ -173,7 +173,7 @@ async def worker(name, queue):
                 pass
 
             # Getting the media file
-            media_msg = (await c.get_messages(m.chat.id, m.reply_to_message.message_id)).reply_to_message
+            media_msg = (await c.get_messages(m.chat.id, m.reply_to_message.id)).reply_to_message
             try:
                 await m.reply_to_message.delete()
             except:
