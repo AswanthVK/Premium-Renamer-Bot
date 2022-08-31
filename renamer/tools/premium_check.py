@@ -25,7 +25,7 @@ async def premium_check(c, m, sent):
     except UserNotParticipant:
         button = [[InlineKeyboardButton('🔰 Join Now 🔰', url='https://t.me/DKBOTZ')]]
         markup = InlineKeyboardMarkup(button)
-        await sent.edit(text=f"👋 Hi {m.from_user.mention(style='md')},\n\n**Please Join My Updates Channel to use this Bot!**\n\nDue to Overload, Only Channel Subscribers can use the Bot!", parse_mode='markdown', reply_markup=markup)
+        await sent.edit(text=f"👋 Hi {m.from_user.mention(style='md')},\n\n**Please Join My Updates Channel to use this Bot!**\n\nDue to Overload, Only Channel Subscribers can use the Bot!", style=md, reply_markup=markup)
         return True
 
     except Exception as e:
@@ -97,7 +97,7 @@ async def premium_check(c, m, sent):
                 try:
                     await sent.edit(
                         text=f"👋 Your paid plan has Expired on {will_expire}\n\nIf you want to use the bot, You can do so by Paying.",
-                        parse_mode="markdown",
+                        style=md,
                         quote=True
                     )
                     
