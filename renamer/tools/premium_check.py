@@ -69,11 +69,7 @@ async def premium_check(c, m, sent):
 
     SUB_BUTTONS = InlineKeyboardMarkup(
         [
-            [
-                InlineKeyboardButton("Functions", callback_data="function"),
-                InlineKeyboardButton("Instructions", callback_data="instruct"),
-            ],
-            [InlineKeyboardButton("Pay Now", url="https://te.legra.ph/Payment-07-06")],
+            [InlineKeyboardButton("Send Screenshot", url="https://t.me/DKBOTZHELP")],
         ]
     )
     user_id = m.from_user.id
@@ -122,7 +118,7 @@ async def premium_check(c, m, sent):
 
         else:
             await sent.edit(
-                text="Only paid users can use me. For more information Click on **Instructions** Buttons",
+                text="Only Paid Users Can Use Me.\n\n__**Features For Paid User**__\n\nNo Time Gap\n\nFast Speed\n\nCustom Caption\n\nScreenshot And Sample Video Generate Features\n\nAnd Many More\n\nBuy All Features In 49. Pay on `dkbotz@ybl` Then Send Screenshot To @DKBOTZHELP",
                 reply_markup=SUB_BUTTONS
             )
             
