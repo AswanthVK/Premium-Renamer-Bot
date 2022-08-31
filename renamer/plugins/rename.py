@@ -338,24 +338,7 @@ async def worker(name, queue):
 
 
 async def complete_process(c, m):
-    Config.TIME_GAP2[m.from_user.id] = time.time()
-    started_time = Config.TIME_GAP1[m.from_user.id]
-    end_time = Config.TIME_GAP2[m.from_user.id]
-    del Config.TIME_GAP1[m.from_user.id]
-    time_consumed = time.time() - started_time
-
-    send_message = await m.reply_text(text=f"Please wait {TimeFormatter(round(end_time + time_consumed - time.time()) * 1000)}, because i am reseting")
-    Config.timegap_message[m.from_user.id] = send_message
-    # editing the message untill time gap ended 
-    while round(time.time() - end_time) < time_consumed:
-        try:
-            await send_message.edit(text=f"Please wait {TimeFormatter(round(end_time + time_consumed - time.time()) * 1000)}, because i am reseting")
-        except Exception as e:
-            pass
-        await asyncio.sleep(3)
-    await send_message.delete()
-    await m.reply_text("**You can send me new task Now**", parse_mode="markdown")
-    del Config.TIME_GAP2[m.from_user.id]
+    await m.reply_text("**Your Task is Complete**", parse_mode="markdown")
 
 
 ############################################################################################################################################################################################################################################################################################################
