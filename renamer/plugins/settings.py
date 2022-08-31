@@ -68,13 +68,11 @@ async def settings(c, m, cb=False):
             await m.answer()
             await m.message.edit(
                 text="⚙️ 𝖢𝗈𝗇𝖿𝗂𝗀 𝖡𝗈𝗍 𝖲𝖾𝗍𝗍𝗂𝗇𝗀𝗌",
-                parse_mode="markdown",
                 reply_markup=InlineKeyboardMarkup(settings_btn)
             )
         if not cb:
             await send_message.edit(
                 text="⚙️ 𝖢𝗈𝗇𝖿𝗂𝗀 𝖡𝗈𝗍 𝖲𝖾𝗍𝗍𝗂𝗇𝗀𝗌",
-                parse_mode="markdown",
                 reply_markup=InlineKeyboardMarkup(settings_btn)
             )
     except:
