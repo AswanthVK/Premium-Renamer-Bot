@@ -104,6 +104,7 @@ async def premium_check(c, m, sent):
                         parse_mode="markdown",
                         quote=True
                     )
+                    
                 except Exception as e:
                     logger.info(f"⚠️ Error: {e}")
                 for i in Config.AUTH_USERS:
@@ -120,12 +121,14 @@ async def premium_check(c, m, sent):
                 pass
 
         else:
+            await send.delete()
             await m.reply_text(
                 text="Only paid users can use me. For more information Click on **Instructions** Buttons",
                 reply_markup=SUB_BUTTONS,
                 disable_web_page_preview=True,
                 quote=True,
             )
+            
             return True
 
     ban_status = await c.db.get_ban_status(m.from_user.id)
