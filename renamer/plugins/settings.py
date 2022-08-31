@@ -15,7 +15,6 @@ async def settings(c, m, cb=False):
     if not cb:
         send_message = await m.reply_text(
             "**Processing.....⏳**",
-            parse_mode="markdown",
             quote=True
         )
     
