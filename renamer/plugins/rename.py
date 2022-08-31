@@ -32,8 +32,8 @@ user = []
 async def doc(c, m):
     send_message = await m.reply_text(text="Processing....⏳", quote=True)
 
-    premium_check = await premium_check(c, m, send_message)
-    if premium_check: # returning message if User Have Not Premium Of Bot
+    premium = await premium_check(c, m, send_message)
+    if premium: # returning message if User Have Not Premium Of Bot
         return
 
     if m.from_user.id in user:
@@ -60,8 +60,8 @@ async def rename(c, m):
     if m.reply_to_message.outgoing and "𝖭𝗈𝗐 𝖲𝖾𝗇𝖽 𝗆𝖾 𝖭𝖾𝗐 𝖭𝖺𝗆𝖾" in m.reply_to_message.text:
         send_message = await m.reply_text(text="Processing....⏳", quote=True)
 
-        premium_check = await premium_check(c, m, send_message)
-        if premium_check: # returning message if timegap not completed 
+        premium = await premium_check(c, m, send_message)
+        if premium: # returning message if timegap not completed 
             return
 
         if m.from_user.id in user:
