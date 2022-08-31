@@ -39,7 +39,6 @@ async def progress_bar(current, total, status_msg, start, c, m, id, sts=None):
                 button = [[InlineKeyboardButton("𝖢𝖠𝖭𝖢𝖤𝖫 ⛔", callback_data=f"cancel_download+{id}")]]
                 await m.edit(
                     text=current_message,
-                    parse_mode="markdown",
                     reply_markup=InlineKeyboardMarkup(button)
                 )
                 Config.ACTIVE_DOWNLOADS[id] = time.time()
