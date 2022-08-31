@@ -50,7 +50,7 @@ async def start(c, m, cb=False):
             f"New User {m.from_user.mention} started."
         )
     if not cb:
-        start = await m.reply_text("**Checking...**", parse_mode="markdown", quote=True)
+        start = await m.reply_text("**Checking...**", quote=True)
 
     button = [
         [
