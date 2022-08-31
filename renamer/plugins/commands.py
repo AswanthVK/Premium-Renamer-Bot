@@ -7,6 +7,13 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 @Client.on_message(filters.command("help") & filters.private & filters.incoming)
 async def help(c, m, cb=False):
+    
+    if not await c.db.is_user_exist(m.from_user.id):
+        await c.db.add_user(m.from_user.id)
+        await c.send_message(
+            Config.DB_CHANNEL_ID,
+            f"New User {m.from_user.mention} started."
+        )
     button = [[
         InlineKeyboardButton('🏕️ Home', callback_data='back'),
         InlineKeyboardButton('💸 Donate', callback_data='donate')
@@ -36,6 +43,12 @@ async def help(c, m, cb=False):
 
 @Client.on_message(filters.command("start") & filters.private & filters.incoming)
 async def start(c, m, cb=False):
+    if not await c.db.is_user_exist(m.from_user.id):
+        await c.db.add_user(m.from_user.id)
+        await c.send_message(
+            Config.DB_CHANNEL_ID,
+            f"New User {m.from_user.mention} started."
+        )
     if not cb:
         start = await m.reply_text("**Checking...**", parse_mode="markdown", quote=True)
 
@@ -72,6 +85,12 @@ async def start(c, m, cb=False):
 
 @Client.on_message(filters.command("about") & filters.private & filters.incoming)
 async def about(c, m, cb=False):
+    if not await c.db.is_user_exist(m.from_user.id):
+        await c.db.add_user(m.from_user.id)
+        await c.send_message(
+            Config.DB_CHANNEL_ID,
+            f"New User {m.from_user.mention} started."
+        )
     restart_time = Config.RESTART_TIME[0]
     time_format = restart_time.strftime("%d %B %Y %I:%M %p")
     button = [[
