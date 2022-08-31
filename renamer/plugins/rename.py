@@ -48,7 +48,7 @@ async def doc(c, m):
     await send_message.delete()
     await m.reply_text(
         text=f"**📂 𝖥𝗂𝗅𝖾 𝖭𝖺𝗆𝖾:** `{file_name}`\n\n**🗯 Caption:** `{caption}`\n\n**𝖭𝗈𝗐 𝖲𝖾𝗇𝖽 𝗆𝖾 𝖭𝖾𝗐 𝖭𝖺𝗆𝖾**",
-        parse_mode="markdown",
+        style=md,
         reply_markup=ForceReply(),
         quote=True
     )
