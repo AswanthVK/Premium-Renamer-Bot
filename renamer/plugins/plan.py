@@ -22,7 +22,7 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 
 @Client.on_message(filters.private & filters.command("plan"))
-async def plan(c, m)
+async def help(c, m):
     user_id = m.from_user.id
     if Config.PAID_BOT.upper() == "YES":
         try:
