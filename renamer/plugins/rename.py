@@ -208,7 +208,7 @@ async def worker(name, queue):
                     progress_args=("Downloading:", start_time, c, msg, id)
                 )
             except Exception as e:
-                await msg.edit(f"--Error:--\n{e}", parse_mode="markdown")
+                await msg.edit(f"--Error:--\n{e}", quote=True)
                 continue
 
             if (file_location is None)|(id not in Config.ACTIVE_DOWNLOADS):
@@ -337,7 +337,7 @@ async def worker(name, queue):
 
 
 async def complete_process(c, m):
-    await m.reply_text("**Your Task is Complete**", parse_mode="markdown")
+    await m.reply_text("**Your Task is Complete**", quote=True)
 
 
 ############################################################################################################################################################################################################################################################################################################
