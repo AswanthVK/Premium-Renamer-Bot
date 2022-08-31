@@ -5,3 +5,4 @@ motor
 Pillow
 hachoir
 dnspython
+aiofiles
