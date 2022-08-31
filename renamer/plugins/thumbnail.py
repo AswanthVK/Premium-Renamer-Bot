@@ -32,8 +32,7 @@ async def save_photo(c, m):
     )
 
     await send_message.edit(
-        text=TEXT.SAVED_CUSTOM_THUMBNAIL,
-        quote=True
+        text=TEXT.SAVED_CUSTOM_THUMBNAIL
     )
 
 
