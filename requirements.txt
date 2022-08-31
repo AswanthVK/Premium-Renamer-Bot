@@ -6,3 +6,8 @@ Pillow
 hachoir
 dnspython
 aiofiles
+shutil
+psutil
+
+
+
