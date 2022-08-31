@@ -7,7 +7,7 @@ import random
 import string
 import time
 import traceback
-
+from renamer.config import Config
 import aiofiles
 from pyrogram import Client, filters
 from pyrogram.errors import (
@@ -18,12 +18,11 @@ from pyrogram.errors import (
 )
 
 from config import Config
-from database.database import Database
+
 
 log = logging.getLogger(__name__)
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
-db = Database()
 
 broadcast_ids = {}
 
@@ -52,7 +51,7 @@ async def send_msg(user_id, message):
     & filters.reply
 )
 async def paidbroadcast_(c, m):
-    all_users = await db.get_all_paid_users()
+    all_users = await c.db.get_all_paid_users()
     total_users = 0
     async for paid_user in all_users:
         total_users += 1
@@ -80,7 +79,7 @@ async def paidbroadcast_(c, m):
             else:
                 failed += 1
             # if sts == 400:
-            #    await db.delete_user(user['id'])
+            #    await c.db.delete_user(user['id'])
             done += 1
             if broadcast_ids.get(broadcast_id) is None:
                 break
@@ -115,7 +114,7 @@ async def check_user_plan(c, m):
     will_expire_days = 0
     try:
         user_ids = int(m.from_user.id)
-        all_paid_users = await db.get_all_paid_users()
+        all_paid_users = await c.db.get_all_paid_users()
         async for paid_user in all_paid_users:
             user_id = paid_user["id"]
             if user_ids == user_id:
@@ -133,7 +132,7 @@ async def check_user_plan(c, m):
                 # log.info(f"Compare: {check}")
 
                 if will_expire < current_date:
-                    await db.remove_paid(user_id)
+                    await c.db.remove_paid(user_id)
                     paid_usr_count = 0
                     return (
                         paid_usr_count,
@@ -198,7 +197,7 @@ async def paid_statusss(c, m):
 
     try:
         user_ids = int(m.command[1])
-        all_paid_users = await db.get_all_paid_users()
+        all_paid_users = await c.db.get_all_paid_users()
         text = ""
         paid_usr_count = 0
         async for paid_user in all_paid_users:
@@ -259,7 +258,7 @@ async def paiduser(c, m):
         except Exception as e:
             log.debug(e, exc_info=True)
             paid_log_text += f"\n\nUser notification failed !!!{e}"
-        await db.paid_user(user_id, paid_username, paid_duration, paid_reason)
+        await c.db.paid_user(user_id, paid_username, paid_duration, paid_reason)
         log.debug(paid_log_text)
         await m.reply_text(paid_log_text, quote=True)
     except Exception as e:
@@ -274,7 +273,7 @@ async def paiduser(c, m):
     filters.private & filters.command("paid_users") & filters.user(Config.AUTH_USERS)
 )
 async def _paid_usrs(c, m):
-    all_paid_users = await db.get_all_paid_users()
+    all_paid_users = await c.db.get_all_paid_users()
     paid_usr_count = 0
     text = ""
     async for paid_user in all_paid_users:
@@ -319,7 +318,7 @@ async def plan_expireds(c, m):
         except Exception as e:
             log.debug(e, exc_info=True)
             plan_ex_log_text += f"\n\nUser notification failed !! {e}"
-        await db.remove_paid(user_id)
+        await c.db.remove_paid(user_id)
         log.debug(plan_ex_log_text)
         await m.reply_text(plan_ex_log_text, quote=True)
     except Exception as e:
