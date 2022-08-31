@@ -121,7 +121,6 @@ async def premium_check(c, m, sent):
                 pass
 
         else:
-            await send.delete()
             await m.reply_text(
                 text="Only paid users can use me. For more information Click on **Instructions** Buttons",
                 reply_markup=SUB_BUTTONS,
