@@ -94,13 +94,13 @@ async def paidbroadcast_(c, m):
     if failed == 0:
         await m.reply_text(
             text=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.",
-            quote=True,
+            quote=True
         )
     else:
         await m.reply_document(
             document="broadcast.txt",
             caption=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.",
-            quote=True,
+            quote=True
         )
     os.remove("broadcast.txt")
 
@@ -179,7 +179,7 @@ async def paid_ss(c, m):
     await m.reply_text(
         "➩  /paid_user Add a user in Subscription\n\n➩  /paid_status To know user(s) paid status"
         "\n\n➩  /plan_expired When plan expired\n\n➩  /paid_users List of all paid users",
-        quote=True,
+        quote=True
     )
 
 
@@ -190,7 +190,7 @@ async def paid_statusss(c, m):
     if len(m.command) == 1:
         await m.reply_text(
             "Use this command to add a user in paid bot.\n\nUsage:\n\n`/paid_user user_id`",
-            quote=True,
+            quote=True
         )
         return
 
@@ -211,7 +211,7 @@ async def paid_statusss(c, m):
         if paid_usr_count == 0:
             await m.reply_text(
                 "⚠️ Paid User not found in this id, or Plan Expired ",
-                quote=True,
+                quote=True
             )
             return
         reply_text = f"{text}"
@@ -226,7 +226,7 @@ async def paid_statusss(c, m):
         log.error(e, exc_info=True)
         await m.reply_text(
             f"Error occoured!! {e}",
-            quote=True,
+            quote=True
         )
 
 
@@ -238,7 +238,7 @@ async def paiduser(c, m):
     if len(m.command) == 1:
         await m.reply_text(
             "Use this command to add a user in paid bot.\n\nUsage:\n\n`/paid_user user_id user_name duration discription` ",
-            quote=True,
+            quote=True
         )
         return
 
@@ -264,7 +264,7 @@ async def paiduser(c, m):
         log.error(e, exc_info=True)
         await m.reply_text(
             f"Error occoured!! {e}",
-            quote=True,
+            quote=True
         )
 
 
@@ -288,9 +288,9 @@ async def _paid_usrs(c, m):
         paid_usrs = io.BytesIO()
         paid_usrs.name = "paid-users.txt"
         paid_usrs.write(reply_text.encode())
-        await m.reply_document(paid_usrs, True)
+        await m.reply_document(paid_usrs, quote=True)
         return
-    await m.reply_text(reply_text, True)
+    await m.reply_text(reply_text, quote=True)
 
 
 @Client.on_message(
@@ -300,7 +300,7 @@ async def plan_expireds(c, m):
     if len(m.command) == 1:
         await m.reply_text(
             "Use this command to kick plan_expired user.\n\nUsage:\n\n`/plan_expired user_id`\n\n",
-            quote=True,
+            quote=True
         )
         return
 
@@ -324,5 +324,5 @@ async def plan_expireds(c, m):
         log.error(e, exc_info=True)
         await m.reply_text(
             f"Error occoured! {e}",
-            quote=True,
+            quote=True
         )
