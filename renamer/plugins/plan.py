@@ -66,7 +66,6 @@ async def help(c, m):
             current_date = datetime.datetime.now()
             await m.reply_text(
                 text="**Your Plan Deatails**\n\n**User Id:** `{m.from_user.id}`\n\n**User Name:** @{m.from_user.username}\n\nPlan : `Free`\n\n**Plan Validity:** `Lifetime`\n\nDate :- {current_date}\n\n__**Plan 1**__\n\n`49/M\n\nAll Features Of This Bot`\n\n__**Plan 2**__\n\n`130 For 3 Month\n\nAll Features Of This Bot`\n\n__**Plan 2**__\n\n`500 For 1 Year\n\nAll Features Of This Bot`\n\n||**Need More Plans Contact To Our Developer :- @DKBOTZHELP**||",
-                reply_markup=SUB_BUTTONS,
                 disable_web_page_preview=True,
                 quote=True,
             )
