@@ -48,7 +48,6 @@ async def doc(c, m):
     await send_message.delete()
     await m.reply_text(
         text=f"**📂 𝖥𝗂𝗅𝖾 𝖭𝖺𝗆𝖾:** `{file_name}`\n\n**🗯 Caption:** `{caption}`\n\n**𝖭𝗈𝗐 𝖲𝖾𝗇𝖽 𝗆𝖾 𝖭𝖾𝗐 𝖭𝖺𝗆𝖾**",
-        style=md
         reply_markup=ForceReply(),
         quote=True
     )
@@ -61,7 +60,7 @@ async def rename(c, m):
         send_message = await m.reply_text(text="Processing....⏳", quote=True)
 
         premium = await premium_check(c, m, send_message)
-        if premium: # returning message if timegap not completed 
+        if premium: # returning message if User Have Not Premium Of Bot
             return
 
         if m.from_user.id in user:
@@ -124,8 +123,7 @@ async def work(c, m, new_file_name, duration):
                                     InputMediaPhoto(
                                         media=images[i],
                                         caption=caption,
-                                        style=md
-
+                                        quote=True
                                     )
                                 )
                             else:
