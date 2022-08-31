@@ -17,7 +17,6 @@ from pyrogram.errors import (
     UserIsBlocked,
 )
 
-from config import Config
 
 
 log = logging.getLogger(__name__)
