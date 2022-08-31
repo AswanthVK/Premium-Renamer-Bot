@@ -121,12 +121,9 @@ async def premium_check(c, m, sent):
                 pass
 
         else:
-            await send_message.delete()
-            await m.reply_text(
+            await sent.edit(
                 text="Only paid users can use me. For more information Click on **Instructions** Buttons",
-                reply_markup=SUB_BUTTONS,
-                disable_web_page_preview=True,
-                quote=True,
+                reply_markup=SUB_BUTTONS
             )
             
             return True
