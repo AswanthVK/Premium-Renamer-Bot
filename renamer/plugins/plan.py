@@ -21,6 +21,14 @@ log = logging.getLogger(__name__)
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 
+
+    PAID_BUTTONS = InlineKeyboardMarkup(
+        [
+            [InlineKeyboardButton("Send Screenshot", url="https://t.me/DKBOTZHELP")],
+        ]
+    )
+    
+    
 @Client.on_message(filters.private & filters.command("plan"))
 async def help(c, m):
     user_id = m.from_user.id
@@ -46,6 +54,7 @@ async def help(c, m):
                     await bot.send_message(
                         m.chat.id,
                         f"**User Id:** `{m.from_user.id}`\n\n**User Name:** @{m.from_user.username}\n\n**Plan Validity:** `{paid_duration}` Days\n\n**Joined On** : `{paid_on}`\n\n👋 Your Paid Plan Has Expired On {will_expire}\n\nIf You Want To Use The Bot, You Can Do So By Paying.\n\n__**Plan 1**__\n\n`49/M\n\nAll Features Of This Bot`\n\n__**Plan 2**__\n\n`130 For 3 Month\n\nAll Features Of This Bot`\n\n__**Plan 2**__\n\n`500 For 1 Year\n\nAll Features Of This Bot`\n\n||**Need More Plans Contact To Our Developer :- @DKBOTZHELP**||",
+                        reply_markup=PAID_BUTTONS
                     )
                 except Exception as e:
                     logger.info(f"⚠️ Error: {e}")
@@ -54,6 +63,7 @@ async def help(c, m):
                         await bot.send_message(
                             i,
                             f"🌟 **Plan Expired:** \n\n**User Id:** `{m.from_user.id}`\n\n**User Name:** @{update.from_user.username}\n\n**Plan Validity:** {paid_duration} Days\n\n**Joined On** : {paid_on}\n\n**Discription** : {paid_reason}",
+                            reply_markup=PAID_BUTTONS
                         )
                     except Exception:
                         logger.info(f"⚠️ Not found id {i}")
@@ -68,6 +78,7 @@ async def help(c, m):
                 text=f"**Your Plan Deatails**\n\n**User Id:** `{m.from_user.id}`\n\n**User Name:** @{m.from_user.username}\n\nPlan : `Free`\n\n**Plan Validity:** `Lifetime`\n\nDate :- {current_date}\n\n__**Plan 1**__\n\n`49/M\n\nAll Features Of This Bot`\n\n__**Plan 2**__\n\n`130 For 3 Month\n\nAll Features Of This Bot`\n\n__**Plan 2**__\n\n`500 For 1 Year\n\nAll Features Of This Bot`\n\n||**Need More Plans Contact To Our Developer :- @DKBOTZHELP**||",
                 disable_web_page_preview=True,
                 quote=True,
+                reply_markup=PAID_BUTTONS
             )
             return
     paid_id = m.from_user.id
@@ -82,5 +93,6 @@ async def help(c, m):
         await m.reply_text(
             text=f"**Your Plan Deatails**\n\n**User Id:** `{m.from_user.id}`\n\n**User Name:** @{m.from_user.username}\n\nPlan Type : `Paid`\n\n**Plan Validity:** `{paid_duration}` Days\n\n**Plan Buy On** : `{paid_on}`\n\n**Plan Discription** : `{paid_reason}`\n\nDate :- `{current_date}`\n\n👋 Your Paid Plan Has Expired On {will_expire}\n\n__**Plan 1**__\n\n`49/M\n\nAll Features Of This Bot`\n\n__**Plan 2**__\n\n`130 For 3 Month\n\nAll Features Of This Bot`\n\n__**Plan 2**__\n\n`500 For 1 Year\n\nAll Features Of This Bot`\n\n||**Need More Plans Contact To Our Developer :- @DKBOTZHELP**||",
             disable_web_page_preview=True,
-            quote=True,
+            reply_markup=PAID_BUTTONS,
+            quote=True
         )
