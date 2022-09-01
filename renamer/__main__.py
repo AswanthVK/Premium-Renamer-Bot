@@ -11,16 +11,40 @@ import datetime
 from .config import Config
 from pyrogram import Client
 from .database.database import Database
+from pyromod import listen
+
+nest_asyncio.apply()
+
+logging.basicConfig(
+    level=logging.INFO,
+    handlers=[logging.FileHandler("log.txt"), logging.StreamHandler()],
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+)
+logger = logging.getLogger(__name__)
+logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 
-def main():
+if Config.SESSION_STRING:
+    USERBOT = Client(
+        "cmuserbot",
+        session_string=Config.SESSION_STRING,
+        api_id=Config.API_ID,
+        api_hash=Config.API_HASH,
+    )
+else:
+    USERBOT = None
 
-    Renamer = Client("Renamer_NsBot",
-                 bot_token=Config.BOT_TOKEN,
-                 api_id=Config.API_ID,
-                 api_hash=Config.API_HASH,
-                 plugins=dict(root="renamer/plugins"),
-                 workers=16)
+
+if __name__ == "__main__" :
+
+
+    plugins = dict(root="renamer/plugins")
+    Renamer = Client(
+        "Uploader Bot",
+        bot_token=Config.BOT_TOKEN,
+        api_id=Config.API_ID,
+        api_hash=Config.API_HASH,
+        plugins=plugins)
 
     if not os.path.isdir(Config.DOWNLOAD_LOCATION):
         os.makedirs(Config.DOWNLOAD_LOCATION)
@@ -33,8 +57,7 @@ def main():
     Renamer.run()
 
 
-if __name__ == "__main__":
-    main()
+
 
 
 
