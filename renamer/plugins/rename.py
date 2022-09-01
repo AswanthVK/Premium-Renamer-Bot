@@ -17,7 +17,7 @@ from ..tools.sample_video import generate_sample
 from ..tools.take_screen_shot import take_screen_shot
 from ..tools.progress_bar import progress_bar, TimeFormatter, humanbytes
 from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ForceReply, InputMediaPhoto
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ForceReply, InputMediaPhoto, SendMessageUploadPhotoAction
 from pyrogram.errors import FloodWait
 
 timegap_message = {}
@@ -99,7 +99,7 @@ async def work(c, m, new_file_name, duration):
     # if screenshots
     if screen_shots != 0:
         try:
-            send_text = await m.reply_text(text="**Generating screenshots...😎**")
+            send_text = await m.reply_text(text="**Generating screenshots...😎**", quote=True)
 
             if duration > 0:
                 images = []
