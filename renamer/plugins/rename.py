@@ -17,7 +17,7 @@ from ..tools.sample_video import generate_sample
 from ..tools.take_screen_shot import take_screen_shot
 from ..tools.progress_bar import progress_bar, TimeFormatter, humanbytes
 from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ForceReply, InputMediaPhoto, SendMessageUploadPhotoAction
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ForceReply, InputMediaPhoto
 from pyrogram.errors import FloodWait
 
 timegap_message = {}
