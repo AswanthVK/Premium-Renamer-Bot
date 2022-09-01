@@ -13,7 +13,7 @@ from pyrogram import Client
 from .database.database import Database
 from pyromod import listen
 
-nest_asyncio.apply()
+
 
 logging.basicConfig(
     level=logging.INFO,
