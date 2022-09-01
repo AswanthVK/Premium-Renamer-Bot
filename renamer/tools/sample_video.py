@@ -49,7 +49,7 @@ async def generate_sample(location, c, m):
               logger.warning(e)
               return await send_message.edit("**Unable to generate samplevideo 🤧**")
 
-          await send_message.edit("**😤 Sample Video generated sucessfully.**\n\n__Now trying to upload__", parse_mode="markdown")
+          await send_message.edit("**😤 Sample Video generated sucessfully.**\n\n__Now trying to upload__")
           duration = await get_duration(final_location)
           thumb_image_path = f"{output_directory}/{m.from_user.id}.jpg"
           try:
@@ -68,7 +68,7 @@ async def generate_sample(location, c, m):
               if Video is None:
                   await send_message.edit("**Upload failed!!**")
           except Exception as e:
-              await send_message.edit(f"**Unable to upload sample video!!**\n\nReason: {e}", parse_mode="markdown")
+              await send_message.edit(f"**Unable to upload sample video!!**\n\nReason: {e}")
           try:
               os.remove(final_location)
           except:
@@ -76,7 +76,7 @@ async def generate_sample(location, c, m):
 
       except Exception as e:
           print(e)
-          await send_message.edit(f"**Failed to generate sample video!!**\n\nDue some programming error. Report this issue in [Ns Bot Supporters](https://telegram.dog/Ns_Bot_supporters)", parse_mode="markdown", disable_web_page_preview=True)
+          await send_message.edit(f"**Failed to generate sample video!!**\n\nDue some programming error. Report this issue in [DK BOTZ SUPPORT](https://telegram.dog/DKBOTZSUPPORT)", parse_mode="markdown", disable_web_page_preview=True)
 
 
 async def trim_video(location, start, sample_duration, final_location):
