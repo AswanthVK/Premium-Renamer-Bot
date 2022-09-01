@@ -8,7 +8,9 @@ WORKDIR /app
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Kolkata
   
-RUN python3 \
+RUN apt -qq update --fix-missing && \
+    apt -qq install -y git \
+    python3 \
     ffmpeg \
     python3-pip
 
