@@ -41,7 +41,7 @@ def user_info(user):
         text += (
             f"\n\n**🌟 Premium User :** {user.is_premium}"
             if user.is_premium
-            else f"\n\n**🌟 Premium User :** "False"
+            else f"\n\n**🌟 Premium User :** "
         )
     except:
         pass
