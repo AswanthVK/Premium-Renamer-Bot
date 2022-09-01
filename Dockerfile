@@ -1,11 +1,29 @@
-FROM archlinux:latest
 
-RUN pacman -Syyu --noconfirm
-RUN pacman -S --noconfirm python-pip zstd p7zip gcc
-RUN pip3 install -U pip
-RUN mkdir /app/
-WORKDIR /app/
-COPY . /app/
-RUN pip3 install -U setuptools
-RUN pip3 install -U -r requirements.txt
+
+FROM ubuntu:latest 
+
+RUN mkdir ./app
+WORKDIR /app
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=Asia/Kolkata
+  
+RUN apt -qq update --fix-missing && \
+    apt -qq install -y git \
+    mediainfo \
+    zip \
+    rar \
+    python3 \
+    ffmpeg \
+    python3-pip \
+    p7zip-full \
+    p7zip-rar \
+    sox
+
+COPY requirements.txt .
+
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+COPY . .
+
 CMD bash start.sh
