@@ -6,7 +6,7 @@ Pillow
 hachoir
 dnspython
 aiofiles
-
+ffmpeg
 psutil
 
 
