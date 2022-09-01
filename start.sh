@@ -1,5 +1,5 @@
-echo "
-WORKING
-"
+echo "Successfully Bot Started ✅"
 
-python -m renamer
+#python3 run_clients.py
+
+python3 -m renamer
