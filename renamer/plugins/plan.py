@@ -24,15 +24,16 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 
 
+    
+    
+@Client.on_message(filters.private & filters.command("plan"))
+async def help(c, m):
+
     PAID_BUTTONS = InlineKeyboardMarkup(
         [
             [InlineKeyboardButton("Send Screenshot", url="https://t.me/DKBOTZHELP")],
         ]
     )
-    
-    
-@Client.on_message(filters.private & filters.command("plan"))
-async def help(c, m):
     user_id = m.from_user.id
     if Config.PAID_BOT.upper() == "YES":
         try:
