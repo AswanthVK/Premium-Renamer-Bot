@@ -123,7 +123,6 @@ async def work(c, m, new_file_name, duration):
                                     InputMediaPhoto(
                                         media=images[i],
                                         caption=caption,
-                                        quote=True
                                     )
                                 )
                             else:
@@ -138,7 +137,6 @@ async def work(c, m, new_file_name, duration):
                     await m.reply_media_group(
                         media=media_album_p,
                         disable_notification=True,
-                        quote=True,
                     )
             else:
                 await send_text.edit("**😑 Failed To generate screenshots**")
