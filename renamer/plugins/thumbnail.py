@@ -70,7 +70,6 @@ async def delete_thumbnail(c, m):
 
     await send_message.edit(
         text=text,
-        quote=True
     )
 
 
