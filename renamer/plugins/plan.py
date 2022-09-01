@@ -16,6 +16,8 @@ from pyrogram.errors import (
     PeerIdInvalid,
     UserIsBlocked,
 )
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.errors import UserBannedInChannel, UserNotParticipant, MessageNotModified
 
 log = logging.getLogger(__name__)
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
