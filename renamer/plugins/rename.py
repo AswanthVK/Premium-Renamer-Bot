@@ -133,7 +133,6 @@ async def work(c, m, new_file_name, duration):
                                 )
                             i = i + 1
                     await send_text.delete()
-                    await m.reply_chat_action("upload_photo")
                     await m.reply_media_group(
                         media=media_album_p,
                         disable_notification=True,
