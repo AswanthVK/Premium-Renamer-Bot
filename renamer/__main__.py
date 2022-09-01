@@ -26,7 +26,7 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 if Config.SESSION_STRING:
     USERBOT = Client(
-        "cmuserbot",
+        "DKBOTZUSER",
         session_string=Config.SESSION_STRING,
         api_id=Config.API_ID,
         api_hash=Config.API_HASH,
@@ -40,7 +40,7 @@ if __name__ == "__main__" :
 
     plugins = dict(root="renamer/plugins")
     Renamer = Client(
-        "Uploader Bot",
+        "DKBOTZ",
         bot_token=Config.BOT_TOKEN,
         api_id=Config.API_ID,
         api_hash=Config.API_HASH,
