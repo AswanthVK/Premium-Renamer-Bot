@@ -23,7 +23,7 @@ async def generate_sample(location, c, m):
           # trying to get duration if Failed sending error message
           duration = await get_duration(location)
           if isinstance(duration, str):
-              return await send_message.edit("**Hey, i am unable to generate sample video 😑**", parse_mode="markdown")
+              return await send_message.edit("**Hey, i am unable to generate sample video 😑**")
 
           # getting the starting and ending time of video
           reduced_sec = duration - int(duration * 10 / 100)
@@ -38,7 +38,7 @@ async def generate_sample(location, c, m):
 
           # Trying to generate sample video if failes sending error message
           try:
-              await send_message.edit("😎 **Generating Sample Video**", parse_mode="markdown")
+              await send_message.edit("😎 **Generating Sample Video**")
           except:
               pass
           try:
