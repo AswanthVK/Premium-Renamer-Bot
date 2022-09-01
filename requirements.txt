@@ -8,6 +8,6 @@ dnspython
 aiofiles
 ffmpeg
 psutil
-
+pyromod
 
 
