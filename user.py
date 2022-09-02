@@ -4,7 +4,7 @@ import logging
 from pyrogram import idle
 
 from renamer.config import Config
-from renamer.__main__ import USERBOT, Renamer
+from renamer.__main__ import USERBOT, BOT
 
 logger = logging.getLogger(__name__)
 
