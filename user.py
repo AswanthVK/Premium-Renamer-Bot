@@ -4,7 +4,7 @@ import logging
 from pyrogram import idle
 
 from renamer.config import Config
-from renamer import Renamer, USERBOT
+from renamer import BOT, USERBOT
 
 logger = logging.getLogger(__name__)
 
@@ -30,13 +30,13 @@ async def start_bots():
     print("Processing.....")
     '''   
     try:
-        await Renamer.start()
+        await BOT.start()
         logger.info(f"Bot is Running....🏃‍♂️")
     except Exception as e:
         logger.info(f"⚠️ Bot Error: {e}")
     '''
 
-    await Renamer.start()   
+    await BOT.start()   
     if Config.SESSION_STRING:
         try:
             await USERBOT.start()
@@ -44,7 +44,7 @@ async def start_bots():
         except Exception as e:
             logger.info(f"⚠️ UserBot Error: {e}")
 
-    await booted(Renamer)
+    await booted(BOT)
     await idle()
 
 
