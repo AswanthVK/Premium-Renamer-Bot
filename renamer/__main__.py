@@ -26,12 +26,12 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 
 isUserPremium = False
-if len(STRING_SESSION) > 10:
+if len(Config.STRING_SESSION) > 10:
     if userBot := Client(
         "Tele-UserBot",
-        api_id=APP_ID,
-        api_hash=API_HASH,
-        session_string=STRING_SESSION,
+        api_id=Config.APP_ID,
+        api_hash=Config.API_HASH,
+        session_string=Config.STRING_SESSION,
     ):
         userBot.start()
         if (userBot.get_me()).is_premium:
