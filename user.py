@@ -3,7 +3,7 @@ import logging
 
 from pyrogram import idle
 
-from config import Config
+from renamer.config import Config
 from renamer import Renamer, USERBOT
 
 logger = logging.getLogger(__name__)
