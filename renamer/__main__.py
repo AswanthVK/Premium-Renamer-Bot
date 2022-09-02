@@ -24,15 +24,25 @@ logger = logging.getLogger(__name__)
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 
-if Config.SESSION_STRING:
-    USERBOT = Client(
-        "DKBOTZUSER",
-        session_string=Config.SESSION_STRING,
-        api_id=Config.API_ID,
-        api_hash=Config.API_HASH,
-    )
-else:
-    USERBOT = None
+
+isUserPremium = False
+if len(STRING_SESSION) > 10:
+    if userBot := Client(
+        "Tele-UserBot",
+        api_id=APP_ID,
+        api_hash=API_HASH,
+        session_string=STRING_SESSION,
+    ):
+        userBot.start()
+        if (userBot.get_me()).is_premium:
+            isUserPremium = True
+            LOGGER.info("[SUCCESS] Initiated UserBot : Premium Mode") #Logging is Needed Very Much
+        else:
+            isUserPremium = False
+            LOGGER.info("[SUCCESS] Initiated UserBot : Non-Premium Mode. Add Premium Account StringSession to Use 4GB Upload. ")
+    else:
+        LOGGER.warning("[FAILED] Userbot Not Started. ReCheck Your STRING_SESSION, and Other Vars")
+else: LOGGER.info("Provide or ReGenerate Your STRING_SESSION Var")
 
 
 if __name__ == "__main__" :
