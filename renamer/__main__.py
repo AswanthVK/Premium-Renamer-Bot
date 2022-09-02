@@ -29,7 +29,7 @@ isUserPremium = False
 if len(Config.STRING_SESSION) > 10:
     if userBot := Client(
         "Tele-UserBot",
-        api_id=Config.APP_ID,
+        api_id=Config.API_ID,
         api_hash=Config.API_HASH,
         session_string=Config.STRING_SESSION,
     ):
